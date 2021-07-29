@@ -30,7 +30,7 @@ exports.update = async (request, response) => {
         await Product.findOneAndReplace(request.params.id, request.body);
         response.send('Produto alterado');
     } catch(err) {
-        response.status(500).send(err);
+        response.status(400).send(err);
     }
 };
 
@@ -40,6 +40,6 @@ exports.delete = async (request, response) => {
         await Product.findByIdAndDelete(request.params.id);
         response.send('Produto deletado');
     } catch(err) {
-        response.status(500).send(err);
+        response.status(400).send(err);
     }
 };
