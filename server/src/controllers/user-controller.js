@@ -1,6 +1,7 @@
 "use strict";
 
 const User = require('../models/user');
+const md5 = require('md5');
 
 // Get all users
 exports.getAll = async (request, response) => {
@@ -17,7 +18,13 @@ exports.getOne = async (request, response) => {
 // Create a user
 exports.create = async (request, response) => {
     try{
-        await User.create(request.body);
+        await User.create({
+            name: request.body.name,
+            email: request.body.email,
+            phone: request.body.phone,
+            address: request.body.address,
+            password: md5(request.body.password + global.SALT_KEY),
+        });
         response.status(201).send('Usuario criado');
     } catch(err) {
         response.status(400).send(err);

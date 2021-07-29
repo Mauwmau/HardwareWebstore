@@ -17,6 +17,7 @@ const schema = new Schema({
     },
     address: {
         type: String,
+        trim: true,
     },
     password: {
         type: String,
