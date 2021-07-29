@@ -20,7 +20,7 @@ exports.create = async (request, response) => {
         await Product.create(request.body);
         response.status(201).send('Produto criado');
     } catch(err) {
-        response.status(500).send(err);
+        response.status(400).send(err);
     }
 };
 

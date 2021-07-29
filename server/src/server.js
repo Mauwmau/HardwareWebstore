@@ -9,6 +9,7 @@ const app = express();
 
 const productRoute = require('./routes/product-route');
 const userRoute = require('./routes/user-route');
+const orderRoute = require('./routes/order-route');
 
 app.use(cors());
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use('/product', productRoute);
 app.use('/user', userRoute);
+app.use('/order', orderRoute);
 
 // Coloca servidor para pra rodar
 const server = app.listen(8081, function () {
