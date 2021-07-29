@@ -9,10 +9,9 @@ const schema = new Schema({
     },
     description: {
         type: String,
-        required: true,
         trim: true,
     },
-    type: {
+    category: {
         type: String,
         trim: true,
     },
