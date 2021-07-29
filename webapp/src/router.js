@@ -16,12 +16,13 @@ function Router() {
       <Header />
 
       <Switch>
+        {/* Por enquanto redireciona pra "vitrine mesmo" */}
         <Route exact path="/">
-          <Home />
+          <Store />
         </Route>
 
         <Route exact path="/home">
-          <Home />
+          <Store />
         </Route>
 
         <Route path="/store">

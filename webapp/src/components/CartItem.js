@@ -17,7 +17,7 @@ function CartItem({id, image, title, price, amount, changeAmount, deleteItem}) {
               <span className="item-title">
                 {title}
               </span>
-              <span className="item-price">${price}</span>
+              <span className="item-price">${price.toFixed(2)}</span>
               <div className="quantity-control">
                   <button className="control-btn" onClick={() => setQuantity(quantity - 1)}>&minus;</button>
                   <span className="centered">{quantity}</span>
@@ -29,7 +29,7 @@ function CartItem({id, image, title, price, amount, changeAmount, deleteItem}) {
               <button className="remove-btn" onClick={() => deleteItem(id)}>Remover do Carrinho</button>
               <div className="item-subtotal">
                 <span>Subtotal do Produto</span>
-                <span className="item-subtotal-valor">${price * quantity}</span>
+                <span className="item-subtotal-valor">${(price * quantity).toFixed(2)}</span>
               </div>
             </div>
 

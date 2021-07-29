@@ -1,16 +1,28 @@
-import React from "react";
+import React ,{useEffect, useState} from "react";
 import ProductCard from "../components/ProductCard";
 
 import "../styles/Store.css";
 
-import mockObjects from "../objects/simplified.json";
+// import mockObjects from "../objects/simplified.json";
 
 function Store() {
-  const produtos = mockObjects.objects;
+  
+  const [produtos,setProdutos] = useState([]);
+
+  useEffect(() => {
+    async function fetchMyAPI() {
+      let response = await fetch('http://localhost:8081/product');
+      response = await response.json();
+      setProdutos(response);
+    }
+
+    fetchMyAPI();
+  }, []);
+
 
   return (
     <main id="main-store">
-      <div className="filters">
+      {/* <div className="filters">
         <h2 className="filter-header"> Filtros</h2>
         <ul className="filter-list">
           <li>
@@ -26,15 +38,15 @@ function Store() {
             <label htmlFor="cpus">CPUs</label>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       <div className="stand-store">
         {produtos.map((produto) => 
           <ProductCard
-            key={produto.id}
-            id={produto.id}
+            key={produto._id}
+            id={produto._id}
             productImage={produto.thumbnail}
-            productName={produto.name}
+            productName={produto.title}
             productPrice={produto.price}
           />
         )}

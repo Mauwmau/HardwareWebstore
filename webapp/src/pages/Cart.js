@@ -73,7 +73,7 @@ function Cart() {
     <main id="cart-panel">
       <div id="cart-head">
         <span>TOTAL</span>
-        <span>${total}</span>
+        <span>${total.toFixed(2)}</span>
       </div>
 
       <div id="cart-body">

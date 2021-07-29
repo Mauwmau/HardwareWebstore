@@ -14,7 +14,7 @@ function Home() {
       <div className="category">
         <h2 className="category-name"> Placa de Vídeo </h2>
         <div className="banner">
-          <Link to="/store" target="_self">
+          <Link to="/store?filter=gpu">
             <img src={bannerPlacaDeVideo} alt="Placas de Vídeo" />
           </Link>
         </div>
@@ -23,8 +23,8 @@ function Home() {
       <div className="category">
         <h2 className="category-name"> Placa Mãe </h2>
         <div className="banner">
-          <Link to="/store" target="_self">
-            <img src={bannerPlacaMae} alt="Placas de Vídeo" />
+          <Link to="/store?filter=motherboard">
+            <img src={bannerPlacaMae} alt="Placa mãe" />
           </Link>
         </div>
       </div>
@@ -32,8 +32,8 @@ function Home() {
       <div className="category">
         <h2 className="category-name"> Processador </h2>
         <div className="banner">
-          <Link to="/store" target="_self">
-            <img src={bannerCPU} alt="Placas de Vídeo" />
+          <Link to="/store?filter=cpu">
+            <img src={bannerCPU} alt="Processador" />
           </Link>
         </div>
       </div>

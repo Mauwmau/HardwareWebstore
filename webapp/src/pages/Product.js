@@ -1,29 +1,38 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 
 import "../styles/Product.css";
 
-import allObjects from "../objects/complete.json";
-
 function Product() {
   const { id } = useParams();
 
-  const objects = allObjects.objects;
-  const selectedObject = objects.filter((obj) => obj.id === id);
-  const product = selectedObject[0];
+  const [product, setProduct] = useState();
 
-  const [previewImage, setPreviewImage] = useState(product.thumbnail);
+  // const [previewImage, setPreviewImage] = useState();
 
-  function changePreviewImage(source){
-    setPreviewImage(source);
+  async function fetchData(){
+    let data = await fetch("http://localhost:8081/product/" + id);
+    data = await data.json();
+    setProduct(data);
+    console.log(data);
+
   }
 
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+  // function changePreviewImage(source){
+  //   setPreviewImage(source);
+  // }
+
   function addItemToCart(item){
-    const {id, thumbnail, name, price} = item;
+    if (item === undefined) return;
+    const {id, thumbnail, title, price} = item;
     const itemObj = {
       id: id,
       thumbnail: thumbnail,
-      name: name,
+      title: title,
       price: price,
       quantity: 1
     }
@@ -57,17 +66,17 @@ function Product() {
   return product !== undefined ? (
     <main id="preview">
       <div id="product-gallery">
-        {product.photos.map((photo, index) =>(
+        {/* {product.photos.map((photo, index) =>(
           <img src={photo} alt={"foto " + (index + 1)} key={index} onClick={() => changePreviewImage(photo)}/>
-        ))}
+        ))} */}
       </div>
       <div id="image-preview">
-        <img src={previewImage} alt={"Product Preview"} />
+        <img src={product.thumbnail} alt={"Product Preview"} />
       </div>
       <div id="product-information">
         <div className="top-info">
           <h1 className="product-name">
-            {product.name}
+            {product.title}
           </h1>
           <p className="product-description">
             {product.description}
