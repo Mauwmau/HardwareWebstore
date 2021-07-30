@@ -23,7 +23,7 @@ Grupo de WebDev
 - There will be 2 types of users, Clients and Administrators.
 - Admin record will include name, ID, phone number and email address.
 - Each customer will need to fill a form that includes name, ID, address, phone
-    number and email address.s
+    number and email addresss.
 - Products will include name, ID, photo, description, price, quantity in stock and
     quantity sold.
 - Products are selected, their quantity chosen and are included in a shopping
@@ -37,24 +37,32 @@ Grupo de WebDev
 
 We will implement a Hardware Store. We will implementsome functionalities:
 
-- Categories: CPU, GPU, RAM, SSD, HDD, PSU, CPU Cooler,etc.
 - Administrator’s form
 - Customer 's form
 - Purchase history for the customer
 - Create/read/update/delete new products
 - Shopping Cart
 
+Removed Categories feature
+
 **Comments About the Code:**
 
-Our code doesn't have comments at the moment, cart page and components might be a bit confusing.
+We used localStorage in order to manage front end information such as the cart and user information.
+Some comments in code are about features we were to implement but decided not to use them.
 
 **Test Plan:**
 
-At the moment only testing realized is by clicking buttons and links in the webapp, server is not finished yet.
+We tested our backend using Insomnia Software, so we could better visualize information and test them faster \(we think it can also be done in Postman\)
 
 **Test Results:**
 
-The front end of our webstore seems to be working properly.
+We tested and foud out OK:
+Product CRUD
+User CRUD
+
+Orders weren't implemented in frontend but it's Create, Read and Delete functions are OK
+
+Our authentication process works but isn't safe for production pursposes
 
 **Build Procedures:**
 
@@ -71,17 +79,15 @@ Back-end:
 
 
     cd server
-    yarn install
-    yarn dev
+    npm install
+    npm run dev (or node src/server.js)
 
 
 
 **Problems:**
 
-In front-end not all features are covered yet, we are missing: admin page to manage store products, login and sign in page, filter products by category, and listing purchase history for costumers
-
-In back-end it configuring MongoDB took a long time, also we couldn't make server functionalities in time
+In front-end not all features are covered , we are missing: admin page to manage store products and listing purchase history for costumers
 
 **Comments:**
 
-Our project is basically unfinished by the time the deadline arrives but can be better developed with some more time
+Overall our backend has the functionality needed by the application. Our code is not safe for production purposes \(Not using jwt and sending plain text information to server including password\)
