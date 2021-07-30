@@ -9,6 +9,8 @@ import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import Payment from "./pages/Payment";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function Router() {
   return (
@@ -41,8 +43,16 @@ function Router() {
           <Profile />
         </Route>
 
+        <Route exact path="/login">
+          <Login />
+        </Route>
+
         <Route exact path="/payment">
           <Payment />
+        </Route>
+
+        <Route exact path="/signup">
+          <Signup />
         </Route>
 
       </Switch>

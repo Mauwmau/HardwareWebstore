@@ -17,4 +17,7 @@ router.put('/:id', controller.update);
 // DELETE
 router.delete('/:id', controller.delete);
 
+// BASIC AUTH
+router.post('/auth', controller.auth)
+
 module.exports = router;
