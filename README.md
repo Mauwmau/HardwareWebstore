@@ -35,15 +35,15 @@ Grupo de WebDev
 
 **Project Description:**
 
-We will implement a Hardware Store. We will implementsome functionalities:
+We have a Hardware Store. Functionalities implemented:
 
-- Administrator’s form
 - Customer 's form
-- Purchase history for the customer
-- Create/read/update/delete new products
+- Customer Registration
+- Read products
 - Shopping Cart
 
 Removed Categories feature
+Missing Admin and Purchase History features
 
 **Comments About the Code:**
 
